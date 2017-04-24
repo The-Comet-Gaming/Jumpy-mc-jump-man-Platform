@@ -1,0 +1,33 @@
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Jumpy mc jump man Platform 3.exe
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Jumpy mc jump man Platform 3.pdb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\MonoGame.Extended.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.RawInput.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.RawInput.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\obj\x86\Debug\Jumpy mc jump man Platform 3.csprojResolveAssemblyReference.cache
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\obj\x86\Debug\Jumpy mc jump man Platform 3.exe
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\obj\x86\Debug\Jumpy mc jump man Platform 3.pdb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Arial.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\hero.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Level1.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Level2.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Level3.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Tileset.xnb
+C:\Users\The Comet\Desktop\Intro to Game Programming\Completed Tutorials\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Fantasy Tileset.xnb

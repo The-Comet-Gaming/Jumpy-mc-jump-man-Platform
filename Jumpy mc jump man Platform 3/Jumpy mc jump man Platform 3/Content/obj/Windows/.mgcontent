@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Arial.spritefont</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/hero.png</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level1.tmx</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level2.tmx</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3.tmx</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Tileset.png</File>
+    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Fantasy Tileset.png</File>
+  </SourceFiles>
+</SourceFileCollection>
