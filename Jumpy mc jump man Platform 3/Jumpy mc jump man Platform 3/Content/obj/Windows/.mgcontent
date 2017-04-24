@@ -4,12 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Arial.spritefont</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/hero.png</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level1.tmx</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level2.tmx</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3.tmx</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Tileset.png</File>
-    <File>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Fantasy Tileset.png</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Arial.spritefont</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/hero.png</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level1.tmx</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level2.tmx</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3.tmx</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Tileset.png</File>
+    <File>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Fantasy Tileset.png</File>
   </SourceFiles>
 </SourceFileCollection>

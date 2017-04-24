@@ -60,7 +60,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             {
                 acceleration.X += Game1.friction;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
                 acceleration.X += Game1.acceleration;
             }
@@ -73,6 +73,13 @@ namespace Jumpy_mc_jump_man_Platform_3
                 acceleration.Y -= Game1.jumpImpulse;
                 this.isJumping = true;
             }
+            //clamp the velocity so the player doesn't go to fast
+            velocity.X = MathHelper.Clamp(velocity.X, -Game1.maxVelocity.X, Game1.maxVelocity.X);
+
+            velocity.Y = MathHelper.Clamp(velocity.Y, -Game1.maxVelocity.Y, Game1.maxVelocity.Y);
+
+            sprite.position += velocity * deltaTime;
+            // more code will follow
             if ((wasMovingleft && (velocity.X > 0)) || (wasMovingRight && (velocity.X < 0)))
             {
                 //clamp at zero to prevent friction from making us jiggle from side to side
@@ -147,18 +154,6 @@ namespace Jumpy_mc_jump_man_Platform_3
             //if the player is now falling or not. We can do that by looking to see if 
             //there is a platform below them
             this.isFalling = !(celldown || (nx && celldiag));
-       
-
-            //intergrate the forces to calculate the new velocity and position
-            velocity += acceleration * deltaTime;
-
-            //clamp the velocity so the player doesn't go to fast
-            velocity.X = MathHelper.Clamp(velocity.X, -Game1.maxVelocity.X, Game1.maxVelocity.X);
-
-            velocity.Y = MathHelper.Clamp(velocity.Y, -Game1.maxVelocity.Y, Game1.maxVelocity.Y);
-
-            sprite.position += velocity * deltaTime;
-            // more code will follow
         }
             public void Draw(SpriteBatch spriteBatch)
             {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3.tmx</SourceFile>
+  <SourceFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3.tmx</SourceFile>
   <SourceTime>2017-04-24T12:28:55.7412837+10:00</SourceTime>
-  <DestFile>C:/Users/The Comet/Desktop/Intro to Game Programming/Completed Tutorials/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/Level3.xnb</DestFile>
-  <DestTime>2017-04-24T12:29:02.1553474+10:00</DestTime>
+  <DestFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/Level3.xnb</DestFile>
+  <DestTime>2017-04-24T13:53:18.8635163+10:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2016-04-08T11:54:30+10:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>
