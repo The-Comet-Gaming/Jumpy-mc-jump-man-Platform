@@ -33,10 +33,14 @@ namespace Jumpy_mc_jump_man_Platform_3
             Vector2 position = Vector2.Zero;
             Vector2 velocity = Vector2.Zero;
         }
-
+        
         public void Load(ContentManager content)
             {
-                sprite.Load(content, "hero");
+            AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
+            animation.Load(content, "walk", 12, 20);
+
+            sprite.Add(animation, 0, -5);
+            sprite.Pause();
             }
 
             public void Update(float deltaTime)
@@ -55,6 +59,8 @@ namespace Jumpy_mc_jump_man_Platform_3
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 acceleration.X -= Game1.acceleration;
+                sprite.SetFlipped(true);
+                sprite.Play();
             }
             else if (wasMovingleft == true)
             {
@@ -63,6 +69,8 @@ namespace Jumpy_mc_jump_man_Platform_3
             if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
                 acceleration.X += Game1.acceleration;
+                sprite.SetFlipped(false);
+                sprite.Play();
             }
             else if (wasMovingRight == true)
             {
@@ -84,6 +92,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             {
                 //clamp at zero to prevent friction from making us jiggle from side to side
                 velocity.X = 0;
+                sprite.Pause();
             }
 
             //collision detection
@@ -139,6 +148,7 @@ namespace Jumpy_mc_jump_man_Platform_3
                     //clamp the x position and stop the player from falling into the platform we just hit.
                     sprite.position.X = game.TileToPixel(tx);
                     this.velocity.X = 0;    //stop horizontal velocity 
+                    sprite.Pause();
                 }
             }
             else if (this.velocity.X < 0)
@@ -147,7 +157,8 @@ namespace Jumpy_mc_jump_man_Platform_3
                 {
                     //clamp the y position to avoid falling into platform below
                     sprite.position.X = game.TileToPixel(tx + 1);
-                    this.velocity.X = 0;    //stop upward velocity 
+                    this.velocity.X = 0;    //stop horizontal velocity 
+                    sprite.Pause();
                 }
             }
             //the last calculation for our update() method is to dectect

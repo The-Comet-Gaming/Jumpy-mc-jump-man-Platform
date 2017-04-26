@@ -14,7 +14,7 @@ namespace Jumpy_mc_jump_man_Platform_3
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch; 
 
         Enemy enemy = new Enemy();
         Player player = null;
@@ -124,7 +124,6 @@ namespace Jumpy_mc_jump_man_Platform_3
             player.Update(deltaTime);
             enemy.Update(deltaTime);
 
-            //camera.Move(new Vector2(0, -50) * deltaTime);
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
 
             base.Update(gameTime);

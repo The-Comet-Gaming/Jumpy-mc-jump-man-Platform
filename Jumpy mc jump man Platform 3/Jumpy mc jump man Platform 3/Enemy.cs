@@ -17,7 +17,7 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         public void Load(ContentManager content)
         {
-            sprite.Load(content, "hero");
+            //sprite.Load(content, "hero");
         }
 
         public void Update(float deltaTime)
@@ -33,12 +33,12 @@ namespace Jumpy_mc_jump_man_Platform_3
               if (state.IsKeyDown(Keys.Down))
                   sprite.position.Y += 5; */
 
-            sprite.Update(deltaTime);
+            //sprite.Update(deltaTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            //sprite.Draw(spriteBatch);
         }
     }
 }
