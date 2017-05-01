@@ -46,8 +46,10 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         public void SetFlipped(bool state)
         {
-            if (state == true) effects = SpriteEffects.FlipHorizontally;
-            else effects = SpriteEffects.None;
+            if (state == true)
+                effects = SpriteEffects.FlipHorizontally;
+            else
+                effects = SpriteEffects.None;
         }
 
         public void Pause()

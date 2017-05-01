@@ -65,3 +65,5 @@ C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\obj\x86\Debug\Jumpy mc jump man Platform 3.csprojResolveAssemblyReference.cache
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\walk.xnb
+C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Agency_FB.xnb
+C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Heart.xnb

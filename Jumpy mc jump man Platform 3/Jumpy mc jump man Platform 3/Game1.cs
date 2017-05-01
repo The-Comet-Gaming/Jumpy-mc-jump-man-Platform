@@ -21,6 +21,11 @@ namespace Jumpy_mc_jump_man_Platform_3
         Camera2D camera = null;
         TiledMap map = null;
         TiledTileLayer collisionLayer;
+        SpriteFont agency_FB;
+        Texture2D heart;
+
+        int score = 0;
+        int lives = 3;
 
         public int ScreenHeight
         {
@@ -86,12 +91,15 @@ namespace Jumpy_mc_jump_man_Platform_3
             player.Load(Content);
             enemy.Load(Content);
 
+            agency_FB = Content.Load<SpriteFont>("Agency_FB");
+            heart = Content.Load<Texture2D>("Heart");
+
             var viewportAdaptor = new BoxingViewportAdapter(Window, GraphicsDevice, ScreenWidth, ScreenHeight);
 
             camera = new Camera2D(viewportAdaptor);
             camera.Position = new Vector2(0, ScreenHeight);
             
-            map = Content.Load<TiledMap>("Level3"); 
+            map = Content.Load<TiledMap>("Level1"); 
             foreach (TiledTileLayer layer in map.TileLayers)
             {
                 if (layer.Name == "Collisions")
@@ -145,10 +153,20 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             player.Draw(spriteBatch);
 
-            enemy.Draw(spriteBatch);
+            //enemy.Draw(spriteBatch);
 
             map.Draw(spriteBatch);
 
+            spriteBatch.End();
+
+            //draw all the GUI compoments in a seperate SpriteBatch section
+            spriteBatch.Begin();
+            spriteBatch.DrawString(agency_FB, "score :" + score.ToString(), new Vector2(20, 20), Color.Gold);
+
+            for (int i = 0; i < lives; i++)
+            {
+                spriteBatch.Draw(heart, new Vector2(ScreenWidth - 80 - i * 20, 20), Color.White);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
