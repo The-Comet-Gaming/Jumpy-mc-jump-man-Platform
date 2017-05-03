@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Jumpy_mc_jump_man_Platform_3
 {
@@ -15,6 +17,10 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         Vector2 position = Vector2.Zero;
         Vector2 velocity = Vector2.Zero;
+
+        //Jump Sound and Instance
+        SoundEffect jumpSound;
+        SoundEffectInstance jumpSoundInstance;
 
         public Vector2 Position
         {
@@ -38,6 +44,9 @@ namespace Jumpy_mc_jump_man_Platform_3
             {
             AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
             animation.Load(content, "walk", 12, 20);
+
+            jumpSound = content.Load<SoundEffect>("Jump");
+            jumpSoundInstance = jumpSound.CreateInstance();
 
             sprite.Add(animation, 0, -5);
             sprite.Pause();
@@ -80,7 +89,12 @@ namespace Jumpy_mc_jump_man_Platform_3
             {
                 acceleration.Y -= Game1.jumpImpulse;
                 this.isJumping = true;
+                jumpSoundInstance.Play();
             }
+
+            // intergrate the forces to calculate the new position and velocity
+            velocity += acceleration * deltaTime;
+
             //clamp the velocity so the player doesn't go to fast
             velocity.X = MathHelper.Clamp(velocity.X, -Game1.maxVelocity.X, Game1.maxVelocity.X);
 
@@ -88,6 +102,7 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             sprite.position += velocity * deltaTime;
             // more code will follow
+
             if ((wasMovingleft && (velocity.X > 0)) || (wasMovingRight && (velocity.X < 0)))
             {
                 //clamp at zero to prevent friction from making us jiggle from side to side
@@ -130,7 +145,7 @@ namespace Jumpy_mc_jump_man_Platform_3
                 if ((cell && !celldown) || (cellright && !celldiag && nx))
                 {
                     //clamp the y position to avoid falling into platform below
-                    sprite.position.Y = game.TileToPixel(ty);
+                    sprite.position.Y = game.TileToPixel(ty + 1);
                     this.velocity.Y = 0;    //stop upward velocity 
                     //the player is no longer really in that cell,
                     //we clamp them to the cell below
@@ -143,7 +158,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             //we can apply similar logic to the horizontal: 
             if (this.velocity.X > 0)
             {
-                if ((celldown && !cell) || (celldiag && !cellright && ny))
+                if ((cellright && !cell) || (celldiag && !celldown && ny))
                 {
                     //clamp the x position and stop the player from falling into the platform we just hit.
                     sprite.position.X = game.TileToPixel(tx);
@@ -153,7 +168,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             }
             else if (this.velocity.X < 0)
             {
-                if ((cell && !celldown) || (cellright && !celldiag && ny))
+                if ((cell && !cellright) || (celldown && !celldiag && ny))
                 {
                     //clamp the y position to avoid falling into platform below
                     sprite.position.X = game.TileToPixel(tx + 1);

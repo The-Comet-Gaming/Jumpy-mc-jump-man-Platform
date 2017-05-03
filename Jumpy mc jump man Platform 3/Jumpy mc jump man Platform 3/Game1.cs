@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
 using MonoGame.Extended.Maps.Tiled;
 using MonoGame.Extended.ViewportAdapters;
@@ -20,9 +22,15 @@ namespace Jumpy_mc_jump_man_Platform_3
         Player player = null;
         Camera2D camera = null;
         TiledMap map = null;
+        TiledMap backgound = null;
         TiledTileLayer collisionLayer;
         SpriteFont agency_FB;
         Texture2D heart;
+        Texture2D healthPack;
+        Texture2D bronzeLoot;
+        Texture2D silverLoot;
+        Texture2D goldLoot;
+        Song gameMusic;
 
         int score = 0;
         int lives = 3;
@@ -93,18 +101,30 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             agency_FB = Content.Load<SpriteFont>("Agency_FB");
             heart = Content.Load<Texture2D>("Heart");
+            healthPack = Content.Load<Texture2D>("Healthpack");
+            bronzeLoot = Content.Load<Texture2D>("Bronze-Loot-Pile");
+            silverLoot = Content.Load<Texture2D>("Silver-Loot-Pile");
+            goldLoot = Content.Load<Texture2D>("Gold-Loot-Pile");
 
             var viewportAdaptor = new BoxingViewportAdapter(Window, GraphicsDevice, ScreenWidth, ScreenHeight);
 
             camera = new Camera2D(viewportAdaptor);
-            camera.Position = new Vector2(0, ScreenHeight);
-            
-            map = Content.Load<TiledMap>("Level1"); 
+            //camera.Position = new Vector2(0, ScreenHeight);
+
+            camera.Position = player.Position - new Vector2(ScreenWidth/2, ScreenHeight/2);
+
+            backgound = Content.Load<TiledMap>("Level3-background");
+            map = Content.Load<TiledMap>("Level3"); 
             foreach (TiledTileLayer layer in map.TileLayers)
             {
                 if (layer.Name == "Collisions")
                     collisionLayer = layer;
-            } 
+
+            }
+
+            // load the game music
+            gameMusic = Content.Load<Song>("SuperHero_original_no_Intro");
+            MediaPlayer.Play(gameMusic);
         }
 
         /// <summary>
@@ -150,6 +170,8 @@ namespace Jumpy_mc_jump_man_Platform_3
             var transformMatrix = camera.GetViewMatrix();
 
             spriteBatch.Begin(transformMatrix: transformMatrix);
+
+            backgound.Draw(spriteBatch);
 
             player.Draw(spriteBatch);
 
