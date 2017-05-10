@@ -81,3 +81,5 @@ C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Gold-Loot-Pile.xnb
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Healthpack.xnb
 C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\Silver-Loot-Pile.xnb
+C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\chest.xnb
+C:\Users\The Comet\Documents\GitHub\Jumpy-mc-jump-man-Platform\Jumpy mc jump man Platform 3\Jumpy mc jump man Platform 3\bin\Windows\x86\Debug\Content\zombie.xnb

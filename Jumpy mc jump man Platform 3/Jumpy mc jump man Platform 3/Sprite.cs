@@ -23,6 +23,11 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         }
 
+        public Rectangle Bounds {
+            get {
+                return new Rectangle(new Point((int)position.X, (int)position.Y), animations[currentAnimation].Framesize);
+            }
+        }
         public void Add(AnimatedTexture animation, int xOffset=0, int yOffset = 0)
         {
             animations.Add(animation);

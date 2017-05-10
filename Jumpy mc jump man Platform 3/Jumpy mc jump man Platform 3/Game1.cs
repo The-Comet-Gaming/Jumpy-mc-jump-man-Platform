@@ -7,6 +7,7 @@ using MonoGame.Extended;
 using MonoGame.Extended.Maps.Tiled;
 using MonoGame.Extended.ViewportAdapters;
 using System;
+using System.Collections.Generic;
 
 namespace Jumpy_mc_jump_man_Platform_3
 {
@@ -18,7 +19,8 @@ namespace Jumpy_mc_jump_man_Platform_3
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch; 
 
-        Enemy enemy = new Enemy();
+        List<Enemy> enemies = new List<Enemy>();
+        Sprite goal = null;
         Player player = null;
         Camera2D camera = null;
         TiledMap map = null;
@@ -97,7 +99,6 @@ namespace Jumpy_mc_jump_man_Platform_3
             // TODO: use this.Content to load your game content here
 
             player.Load(Content);
-            enemy.Load(Content);
 
             agency_FB = Content.Load<SpriteFont>("Agency_FB");
             heart = Content.Load<Texture2D>("Heart");
@@ -120,6 +121,33 @@ namespace Jumpy_mc_jump_man_Platform_3
                 if (layer.Name == "Collisions")
                     collisionLayer = layer;
 
+            }
+
+            foreach (TiledObjectGroup group in map.ObjectGroups)
+            {
+                if (group.Name == "Enemies")
+                {
+                    foreach (TiledObject obj in group.Objects)
+                    {
+                        Enemy enemy = new Enemy(this);
+                        enemy.Load(Content);
+                        enemy.Position = new Vector2(obj.X, obj.Y);
+                        enemies.Add(enemy);
+                    }
+                }
+
+                if (group.Name == "Goal")
+                {
+                    TiledObject obj = group.Objects[0];
+                    if (obj != null)
+                    {
+                        AnimatedTexture anim = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
+                        anim.Load(Content, "chest", 1, 1);
+                        goal = new Sprite();
+                        goal.Add(anim, 0, 5);
+                        goal.position = new Vector2(obj.X, obj.Y);
+                    }
+                }
             }
 
             // load the game music
@@ -149,10 +177,14 @@ namespace Jumpy_mc_jump_man_Platform_3
             // TODO: Add your update logic here
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            player.Update(deltaTime);
-            enemy.Update(deltaTime);
-
+            player.Update(deltaTime);   
+            foreach (Enemy e in enemies)
+            {
+                e.Update(deltaTime);
+            }
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
+
+            CheckCollisions();
 
             base.Update(gameTime);
         }
@@ -174,9 +206,11 @@ namespace Jumpy_mc_jump_man_Platform_3
             backgound.Draw(spriteBatch);
 
             player.Draw(spriteBatch);
-
-            //enemy.Draw(spriteBatch);
-
+            foreach (Enemy e in enemies)
+            {
+                e.Draw(spriteBatch);
+            }
+            goal.Draw(spriteBatch);
             map.Draw(spriteBatch);
 
             spriteBatch.End();
@@ -221,6 +255,36 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             TiledTile tile = collisionLayer.GetTile(tx, ty);
             return tile.Id;
+        }
+        private void CheckCollisions()
+        {
+            foreach (Enemy e in enemies)
+            {
+                if (IsColliding(player.Bounds, e.Bounds) == true)
+                {
+                    if (player.IsJumping && player.Velocity.Y > 0)
+                    {
+                        player.JumpOnCollision();
+                        enemies.Remove(e);
+                        break;
+                    }
+                    else
+                    {
+                        //player dies
+                    }
+                }
+            }
+        }
+
+        private bool IsColliding(Rectangle rect1, Rectangle rect2)
+        {
+            if (rect1.X + rect1.Width < rect2.X || rect1.X > rect2.X + rect2.Width || rect1.Y + rect1.Height < rect2.Y || rect1.Y > rect2.Y + rect2.Height)
+            {
+                //these two rectangles are not colliding
+                return false;
+            }
+            //else, the two AABB rectangles overlap, therefore collision
+            return true;
         }
     }
 }

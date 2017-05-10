@@ -14,6 +14,7 @@ namespace Jumpy_mc_jump_man_Platform_3
         Game1 game = null;
         bool isFalling = true;
         bool isJumping = false;
+        bool autoJump = true;
 
         Vector2 position = Vector2.Zero;
         Vector2 velocity = Vector2.Zero;
@@ -27,6 +28,25 @@ namespace Jumpy_mc_jump_man_Platform_3
             get { return sprite.position; }
         }
 
+        public Vector2 Velocity
+        {
+            get { return velocity; }
+        }
+
+        public Rectangle Bounds
+        {
+            get { return sprite.Bounds; }
+        }
+
+        public bool IsJumping
+        {
+            get { return isJumping; }
+        }
+        
+        public void JumpOnCollision()
+        {
+            autoJump = true;
+        }
 
 
             KeyboardState state;
@@ -85,8 +105,9 @@ namespace Jumpy_mc_jump_man_Platform_3
             {
                 acceleration.X -= Game1.friction;
             }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) == true && this.isJumping == false && falling == false)
+            if ((Keyboard.GetState().IsKeyDown(Keys.Space) == true && this.isJumping == false && falling == false) || autoJump == true)
             {
+                autoJump = false;
                 acceleration.Y -= Game1.jumpImpulse;
                 this.isJumping = true;
                 jumpSoundInstance.Play();
