@@ -98,6 +98,12 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             // TODO: use this.Content to load your game content here
 
+            AIE.StateManager.CreateState("SPLASH", new SplashState());
+            AIE.StateManager.CreateState("GAME", new GameState());
+            AIE.StateManager.CreateState("GAMEOVER", new GameOverState());
+
+            AIE.StateManager.PushState("SPLASH");
+
             player.Load(Content);
 
             agency_FB = Content.Load<SpriteFont>("Agency_FB");
@@ -176,6 +182,8 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             // TODO: Add your update logic here
 
+            AIE.StateManager.Update(Content, gameTime);
+
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.Update(deltaTime);   
             foreach (Enemy e in enemies)
@@ -200,6 +208,8 @@ namespace Jumpy_mc_jump_man_Platform_3
             // TODO: Add your drawing code here
 
             var transformMatrix = camera.GetViewMatrix();
+
+            AIE.StateManager.Draw(spriteBatch);
 
             spriteBatch.Begin(transformMatrix: transformMatrix);
 
