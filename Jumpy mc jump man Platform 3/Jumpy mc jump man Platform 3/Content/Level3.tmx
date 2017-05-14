@@ -105,9 +105,9 @@
   <object id="15" x="1280" y="1472" width="64" height="64"/>
   <object id="19" x="768" y="704" width="64" height="64"/>
   <object id="21" x="1344" y="768" width="64" height="64"/>
-  <object id="22" x="1792" y="832" width="64" height="64"/>
-  <object id="23" x="2240" y="896" width="64" height="64"/>
-  <object id="24" x="2688" y="960" width="64" height="64"/>
+  <object id="22" x="1792" y="832" width="32" height="32"/>
+  <object id="23" x="2256" y="912" width="32" height="32"/>
+  <object id="24" x="2704" y="976" width="32" height="32"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Healthpacks">
   <object id="25" x="144" y="992" width="32" height="32"/>
