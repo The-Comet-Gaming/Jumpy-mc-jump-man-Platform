@@ -9,6 +9,7 @@ namespace Jumpy_mc_jump_man_Platform_3
     class Sprite
     {
         public Vector2 position = Vector2.Zero;
+
         List<AnimatedTexture> animations = new List<AnimatedTexture>();
         List<Vector2> animationOffsets = new List<Vector2>();
 

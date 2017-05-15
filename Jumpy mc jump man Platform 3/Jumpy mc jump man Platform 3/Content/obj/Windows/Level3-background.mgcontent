@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Level3-background.tmx</SourceFile>
-  <SourceTime>2017-05-03T14:05:01.0450794+10:00</SourceTime>
+  <SourceTime>2017-05-15T10:58:14.9464808+10:00</SourceTime>
   <DestFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/Level3-background.xnb</DestFile>
-  <DestTime>2017-05-03T14:07:28.4074348+10:00</DestTime>
+  <DestTime>2017-05-15T10:58:22.5295433+10:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2016-04-08T11:54:30+10:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>

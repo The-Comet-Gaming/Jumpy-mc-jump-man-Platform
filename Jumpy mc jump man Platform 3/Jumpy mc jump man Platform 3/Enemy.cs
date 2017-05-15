@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 namespace Jumpy_mc_jump_man_Platform_3
 {
     class Enemy
-    {
-        Sprite sprite = new Sprite();
+    {        
         //keep a reference to hte Game object to check for collisions on the map
         Game1 game = null;
+
+        Sprite sprite = new Sprite();
+
+        Vector2 position = Vector2.Zero;
         Vector2 velocity = Vector2.Zero;
 
         float pause = 0;
@@ -36,6 +39,7 @@ namespace Jumpy_mc_jump_man_Platform_3
         public Enemy(Game1 game)
         {
             this.game = game;
+            position = Vector2.Zero;
             velocity = Vector2.Zero;
         }
 

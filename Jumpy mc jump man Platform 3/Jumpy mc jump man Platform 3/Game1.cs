@@ -8,6 +8,7 @@ using MonoGame.Extended.Maps.Tiled;
 using MonoGame.Extended.ViewportAdapters;
 using System;
 using System.Collections.Generic;
+using ParticleEffects;
 
 namespace Jumpy_mc_jump_man_Platform_3
 {
@@ -17,22 +18,38 @@ namespace Jumpy_mc_jump_man_Platform_3
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch; 
+        SpriteBatch spriteBatch;
 
-        List<Enemy> enemies = new List<Enemy>();
-        Sprite goal = null;
-        Player player = null;
         Camera2D camera = null;
-        TiledMap map = null;
-        TiledMap backgound = null;
-        TiledTileLayer collisionLayer;
+
+        Emitter fireEmitter = null;
+
+        List<BronzeLootPile> bronzelootpiles = new List<BronzeLootPile>();
+        List<Enemy> enemies = new List<Enemy>();
+        //List<> silverLootPiles = new List<>;
+        //List<> goldLootPiles = new List<>;
+        //List<> healthPackPiles = new List<>;
+
+        Player player = null;
+        //playerSpawn = 
+        Sprite goal = null;
+        Sprite playerSpawn = null;
+        //Sprite bronzeLoot = null;
+
         SpriteFont agency_FB;
+
+        Song gameMusic;
+
         Texture2D heart;
         Texture2D healthPack;
         Texture2D bronzeLoot;
         Texture2D silverLoot;
         Texture2D goldLoot;
-        Song gameMusic;
+        Texture2D fireTexture = null;
+
+        TiledMap map = null;
+        TiledMap backgound = null;
+        TiledTileLayer collisionLayer;
 
         int score = 0;
         int lives = 3;
@@ -142,6 +159,17 @@ namespace Jumpy_mc_jump_man_Platform_3
                     }
                 }
 
+                if (group.Name == "Bronze")
+                {
+                    foreach (TiledObject obj in group.Objects)
+                    {
+                        BronzeLootPile bronzeLootPile = new BronzeLootPile(this);
+                        bronzeLootPile.Load(Content);
+                        bronzeLootPile.Position = new Vector2(obj.X, obj.Y);
+                        bronzelootpiles.Add(bronzeLootPile);
+                    }
+                }
+
                 if (group.Name == "Goal")
                 {
                     TiledObject obj = group.Objects[0];
@@ -185,14 +213,27 @@ namespace Jumpy_mc_jump_man_Platform_3
             AIE.StateManager.Update(Content, gameTime);
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            player.Update(deltaTime);   
+            player.Update(deltaTime);
+            //fireEmitter.Update(gameTime);
             foreach (Enemy e in enemies)
             {
                 e.Update(deltaTime);
             }
+
+            foreach (BronzeLootPile b in bronzelootpiles)
+            {
+                b.Update(deltaTime);
+            }
+
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
 
             CheckCollisions();
+
+            // update the fire partical emitter
+            ///fireEmitter.position = playerPosition;
+            ///fireEmitter.minVelocity = new Vector2((playerSpeed * s), (playerSpeed * c));
+            ///fireEmitter.maxVelocity = new Vector2((playerSpeed*2 * s), (playerSpeed*2 * c));
+            
 
             base.Update(gameTime);
         }
@@ -219,6 +260,10 @@ namespace Jumpy_mc_jump_man_Platform_3
             foreach (Enemy e in enemies)
             {
                 e.Draw(spriteBatch);
+            }
+            foreach (BronzeLootPile b in bronzelootpiles)
+            {
+                b.Draw(spriteBatch);
             }
             goal.Draw(spriteBatch);
             map.Draw(spriteBatch);
@@ -268,6 +313,13 @@ namespace Jumpy_mc_jump_man_Platform_3
         }
         private void CheckCollisions()
         {
+            foreach (BronzeLootPile b in bronzelootpiles)
+            {
+                if (IsColliding(player.Bounds, b.Bounds) == true)
+                {
+                    bronzelootpiles.Remove(b);
+                }
+            }
             foreach (Enemy e in enemies)
             {
                 if (IsColliding(player.Bounds, e.Bounds) == true)
