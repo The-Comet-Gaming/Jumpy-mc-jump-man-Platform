@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/ZombieDeath.wav</SourceFile>
+  <SourceTime>2017-05-17T12:26:29.0172722+10:00</SourceTime>
+  <DestFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/ZombieDeath.xnb</DestFile>
+  <DestTime>2017-05-17T12:41:22.2139854+10:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2016-03-30T17:36:08+11:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2016-03-30T17:36:08+11:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

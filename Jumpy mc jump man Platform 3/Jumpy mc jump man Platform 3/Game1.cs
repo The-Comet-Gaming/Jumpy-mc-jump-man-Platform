@@ -24,14 +24,16 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         Emitter fireEmitter = null;
 
-        List<BronzeLootPile> bronzelootpiles = new List<BronzeLootPile>();
         List<Enemy> enemies = new List<Enemy>();
-        //List<> silverLootPiles = new List<>;
-        //List<> goldLootPiles = new List<>;
-        //List<> healthPackPiles = new List<>;
+        List<BronzeLootPile> bronzeLootPiles = new List<BronzeLootPile>();
+        List<SilverLootPile> silverLootPiles = new List<SilverLootPile>();
+        List<GoldLootPile> goldLootPiles = new List<GoldLootPile>();
+        List<HealthPack> healthPacks = new List<HealthPack>();
 
         Player player = null;
+
         //playerSpawn = 
+
         Sprite goal = null;
         Sprite playerSpawn = null;
         //Sprite bronzeLoot = null;
@@ -40,9 +42,12 @@ namespace Jumpy_mc_jump_man_Platform_3
 
         Song gameMusic;
 
+        SoundEffect zombieDeathSound;
+        SoundEffectInstance zombieDeathSoundInstance;
+
         Texture2D heart;
         Texture2D healthPack;
-        Texture2D bronzeLoot;
+        //Texture2D bronzeLoot;
         Texture2D silverLoot;
         Texture2D goldLoot;
         Texture2D fireTexture = null;
@@ -50,9 +55,13 @@ namespace Jumpy_mc_jump_man_Platform_3
         TiledMap map = null;
         TiledMap backgound = null;
         TiledTileLayer collisionLayer;
+        TiledObject playerSpawn1;
+
+        //Vector2 playerSpawnPos = TiledObject playerSpawn1;
 
         int score = 0;
         int lives = 3;
+        int timer = 3;
 
         public int ScreenHeight
         {
@@ -125,20 +134,22 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             agency_FB = Content.Load<SpriteFont>("Agency_FB");
             heart = Content.Load<Texture2D>("Heart");
-            healthPack = Content.Load<Texture2D>("Healthpack");
-            bronzeLoot = Content.Load<Texture2D>("Bronze-Loot-Pile");
-            silverLoot = Content.Load<Texture2D>("Silver-Loot-Pile");
-            goldLoot = Content.Load<Texture2D>("Gold-Loot-Pile");
+            //healthPack = Content.Load<Texture2D>("Healthpack");
+            //bronzeLoot = Content.Load<Texture2D>("Bronze-Loot-Pile");
+            //silverLoot = Content.Load<Texture2D>("Silver-Loot-Pile");
+            //goldLoot = Content.Load<Texture2D>("Gold-Loot-Pile");
+
+            zombieDeathSound = Content.Load<SoundEffect>("ZombieDeath");
+            zombieDeathSoundInstance = zombieDeathSound.CreateInstance();
 
             var viewportAdaptor = new BoxingViewportAdapter(Window, GraphicsDevice, ScreenWidth, ScreenHeight);
 
             camera = new Camera2D(viewportAdaptor);
-            //camera.Position = new Vector2(0, ScreenHeight);
 
-            camera.Position = player.Position - new Vector2(ScreenWidth/2, ScreenHeight/2);
+            camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
 
             backgound = Content.Load<TiledMap>("Level3-background");
-            map = Content.Load<TiledMap>("Level3"); 
+            map = Content.Load<TiledMap>("Level3");
             foreach (TiledTileLayer layer in map.TileLayers)
             {
                 if (layer.Name == "Collisions")
@@ -159,18 +170,51 @@ namespace Jumpy_mc_jump_man_Platform_3
                     }
                 }
 
-                if (group.Name == "Bronze")
+                else if (group.Name == "Bronze")
                 {
                     foreach (TiledObject obj in group.Objects)
                     {
                         BronzeLootPile bronzeLootPile = new BronzeLootPile(this);
                         bronzeLootPile.Load(Content);
                         bronzeLootPile.Position = new Vector2(obj.X, obj.Y);
-                        bronzelootpiles.Add(bronzeLootPile);
+                        bronzeLootPiles.Add(bronzeLootPile);
                     }
                 }
 
-                if (group.Name == "Goal")
+                else if (group.Name == "Silver")
+                {
+                    foreach (TiledObject obj in group.Objects)
+                    {
+                        SilverLootPile silverLootPile = new SilverLootPile(this);
+                        silverLootPile.Load(Content);
+                        silverLootPile.Position = new Vector2(obj.X, obj.Y);
+                        silverLootPiles.Add(silverLootPile);
+                    }
+                }
+
+                else if (group.Name == "Gold")
+                {
+                    foreach (TiledObject obj in group.Objects)
+                    {
+                        GoldLootPile goldLootPile = new GoldLootPile(this);
+                        goldLootPile.Load(Content);
+                        goldLootPile.Position = new Vector2(obj.X, obj.Y);
+                        goldLootPiles.Add(goldLootPile);
+                    }
+                }
+
+                else if (group.Name == "Healthpacks")
+                {
+                    foreach (TiledObject obj in group.Objects)
+                    {
+                        HealthPack healthPack = new HealthPack(this);
+                        healthPack.Load(Content);
+                        healthPack.Position = new Vector2(obj.X, obj.Y);
+                        healthPacks.Add(healthPack);
+                    }
+                }
+
+                else if (group.Name == "Goal")
                 {
                     TiledObject obj = group.Objects[0];
                     if (obj != null)
@@ -182,10 +226,19 @@ namespace Jumpy_mc_jump_man_Platform_3
                         goal.position = new Vector2(obj.X, obj.Y);
                     }
                 }
+
+                else if (group.Name == "PlayerSpawn")
+                {
+                    TiledObject obj = group.Objects[0];
+                    if (obj != null)
+                    {
+                        player.Position = new Vector2(obj.X, obj.Y);
+                    }
+                }
             }
 
             // load the game music
-            gameMusic = Content.Load<Song>("SuperHero_original_no_Intro");
+            gameMusic = Content.Load<Song>("SuperHero_original(edited)");
             MediaPlayer.Play(gameMusic);
         }
 
@@ -213,27 +266,50 @@ namespace Jumpy_mc_jump_man_Platform_3
             AIE.StateManager.Update(Content, gameTime);
 
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             player.Update(deltaTime);
+            CheckCollisions();
             //fireEmitter.Update(gameTime);
             foreach (Enemy e in enemies)
             {
                 e.Update(deltaTime);
             }
-
-            foreach (BronzeLootPile b in bronzelootpiles)
+            foreach (BronzeLootPile b in bronzeLootPiles)
             {
                 b.Update(deltaTime);
             }
+            foreach (SilverLootPile s in silverLootPiles)
+            {
+                s.Update(deltaTime);
+            }
+            foreach (GoldLootPile g in goldLootPiles)
+            {
+                g.Update(deltaTime);
+            }
+            foreach (HealthPack h in healthPacks)
+            {
+                h.Update(deltaTime);
+            }
+            ///Atempt at updating gamestates to work with the game code I have. 
+            ///Currently updates and draw seperate to the main draw and I am unsure of how to link them to work together.
+            /*if (lives < 1)
+            {
+                AIE.StateManager.ChangeState("GAMEOVER");
+            }
+            if (lives == 0 && timer < 0)
+            {
 
+            }*/
+
+
+            ///player.Position = playerSpawn;
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
-
-            CheckCollisions();
 
             // update the fire partical emitter
             ///fireEmitter.position = playerPosition;
             ///fireEmitter.minVelocity = new Vector2((playerSpeed * s), (playerSpeed * c));
             ///fireEmitter.maxVelocity = new Vector2((playerSpeed*2 * s), (playerSpeed*2 * c));
-            
+
 
             base.Update(gameTime);
         }
@@ -252,27 +328,41 @@ namespace Jumpy_mc_jump_man_Platform_3
 
             AIE.StateManager.Draw(spriteBatch);
 
-            spriteBatch.Begin(transformMatrix: transformMatrix);
-
-            backgound.Draw(spriteBatch);
-
-            player.Draw(spriteBatch);
-            foreach (Enemy e in enemies)
+            if (lives > 0)
             {
-                e.Draw(spriteBatch);
-            }
-            foreach (BronzeLootPile b in bronzelootpiles)
-            {
-                b.Draw(spriteBatch);
-            }
-            goal.Draw(spriteBatch);
-            map.Draw(spriteBatch);
+                spriteBatch.Begin(transformMatrix: transformMatrix);
+                backgound.Draw(spriteBatch);
+                player.Draw(spriteBatch);
+                foreach (Enemy e in enemies)
+                {
+                    e.Draw(spriteBatch);
+                }
+                foreach (BronzeLootPile b in bronzeLootPiles)
+                {
+                    b.Draw(spriteBatch);
+                }
+                foreach (SilverLootPile s in silverLootPiles)
+                {
+                    s.Draw(spriteBatch);
+                }
+                foreach (GoldLootPile g in goldLootPiles)
+                {
+                    g.Draw(spriteBatch);
+                }
+                foreach (HealthPack h in healthPacks)
+                {
+                    h.Draw(spriteBatch);
+                }
+                goal.Draw(spriteBatch);
+                map.Draw(spriteBatch);
 
-            spriteBatch.End();
+                spriteBatch.End();
+            }
 
             //draw all the GUI compoments in a seperate SpriteBatch section
             spriteBatch.Begin();
-            spriteBatch.DrawString(agency_FB, "score :" + score.ToString(), new Vector2(20, 20), Color.Gold);
+
+            spriteBatch.DrawString(agency_FB, "Score :" + score.ToString(), new Vector2(20, 20), Color.Gold);
 
             for (int i = 0; i < lives; i++)
             {
@@ -313,30 +403,89 @@ namespace Jumpy_mc_jump_man_Platform_3
         }
         private void CheckCollisions()
         {
-            foreach (BronzeLootPile b in bronzelootpiles)
+            foreach (BronzeLootPile b in bronzeLootPiles)
             {
                 if (IsColliding(player.Bounds, b.Bounds) == true)
                 {
-                    bronzelootpiles.Remove(b);
+                    score += 5;
+                    bronzeLootPiles.Remove(b);
+                    break;
+                }
+            }
+            foreach (SilverLootPile s in silverLootPiles)
+            {
+                if (IsColliding(player.Bounds, s.Bounds) == true)
+                {
+                    score += 10;
+                    silverLootPiles.Remove(s);
+                    break;
+                }
+            }
+            foreach (GoldLootPile g in goldLootPiles)
+            {
+                if (IsColliding(player.Bounds, g.Bounds) == true)
+                {
+                    score += 20;
+                    goldLootPiles.Remove(g);
+                    break;
+                }
+            }
+            foreach (HealthPack h in healthPacks)
+            {
+                if (IsColliding(player.Bounds, h.Bounds) == true && lives < 3)
+                {
+                    lives += 1;
+                    healthPacks.Remove(h);
+                    break;
                 }
             }
             foreach (Enemy e in enemies)
             {
                 if (IsColliding(player.Bounds, e.Bounds) == true)
                 {
-                    if (player.IsJumping && player.Velocity.Y > 0)
+                    if (player.IsJumping && player.Velocity.Y > 0 || player.Velocity.Y > 0)
                     {
                         player.JumpOnCollision();
                         enemies.Remove(e);
+                        zombieDeathSoundInstance.Play();
+                        score += 5;
                         break;
                     }
                     else
                     {
-                        //player dies
+                        lives -= 1;
+                        enemies.Remove(e);
+                        break;
+                    }
+                }
+            }
+            if (IsColliding(player.Bounds, goal.Bounds) == true)
+            {
+                score += 100;
+                foreach (TiledObjectGroup group in map.ObjectGroups)
+                {
+                    if (group.Name == "PlayerSpawn")
+                    {
+                        TiledObject obj = group.Objects[0];
+                        if (obj != null)
+                        {
+                            player.Position = new Vector2(obj.X, obj.Y);
+                            break;
+                        }
                     }
                 }
             }
         }
+
+        //I made multiple attempts to link the gamestates with the main code properly.
+        /*private void GameReset(float deltaTime)
+        {
+            if (lives == 0)
+            {
+                AIE.StateManager.ChangeState("GAMEOVER");
+            }
+
+        }*/
 
         private bool IsColliding(Rectangle rect1, Rectangle rect2)
         {

@@ -26,6 +26,7 @@ namespace Jumpy_mc_jump_man_Platform_3
         public Vector2 Position
         {
             get { return sprite.position; }
+            set { sprite.position = value; }
         }
 
         public Vector2 Velocity
@@ -65,7 +66,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
             animation.Load(content, "walk", 12, 20);
 
-            jumpSound = content.Load<SoundEffect>("Jump");
+            jumpSound = content.Load<SoundEffect>("Jump(edited)");
             jumpSoundInstance = jumpSound.CreateInstance();
 
             sprite.Add(animation, 0, -5);

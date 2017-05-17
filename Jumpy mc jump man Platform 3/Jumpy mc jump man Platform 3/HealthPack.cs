@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Jumpy_mc_jump_man_Platform_3
 {
-    class SilverLootPile
+    class HealthPack
     {
         //keep a reference to the Game object to check for collisions on the map
         Game1 game = null;
@@ -28,7 +28,7 @@ namespace Jumpy_mc_jump_man_Platform_3
             get { return sprite.Bounds; }
         }
 
-        public SilverLootPile(Game1 game)
+        public HealthPack(Game1 game)
         {
             this.game = game;
             position = Vector2.Zero;
@@ -38,7 +38,7 @@ namespace Jumpy_mc_jump_man_Platform_3
         public void Load(ContentManager content)
         {
             AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
-            animation.Load(content, "Silver-Loot-Pile", 1, 5);
+            animation.Load(content, "Healthpack", 1, 5);
 
             sprite.Add(animation, 0, 0);
         }

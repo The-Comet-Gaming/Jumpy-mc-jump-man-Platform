@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Silver-Loot-Pile.png</SourceFile>
-  <SourceTime>2017-05-03T14:44:28.9005493+10:00</SourceTime>
+  <SourceTime>2017-05-08T14:30:36.4758746+10:00</SourceTime>
   <DestFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/Silver-Loot-Pile.xnb</DestFile>
-  <DestTime>2017-05-03T14:46:41.8744316+10:00</DestTime>
+  <DestTime>2017-05-17T13:52:13.4226699+10:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T17:36:08+11:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

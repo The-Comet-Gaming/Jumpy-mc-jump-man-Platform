@@ -45,6 +45,7 @@
     <Compile Include="GameOverState.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="GoldLootPile.cs" />
+    <Compile Include="HealthPack.cs" />
     <Compile Include="ParticleSystem.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

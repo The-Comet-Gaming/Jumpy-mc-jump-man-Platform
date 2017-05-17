@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/Bronze-Loot-Pile.png</SourceFile>
-  <SourceTime>2017-05-03T14:43:12.9069958+10:00</SourceTime>
+  <SourceTime>2017-05-08T14:29:49.5623979+10:00</SourceTime>
   <DestFile>C:/Users/The Comet/Documents/GitHub/Jumpy-mc-jump-man-Platform/Jumpy mc jump man Platform 3/Jumpy mc jump man Platform 3/Content/bin/Windows/Bronze-Loot-Pile.xnb</DestFile>
-  <DestTime>2017-05-03T14:46:41.8904442+10:00</DestTime>
+  <DestTime>2017-05-17T13:52:13.4156641+10:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T17:36:08+11:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

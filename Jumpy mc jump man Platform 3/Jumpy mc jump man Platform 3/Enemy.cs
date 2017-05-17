@@ -91,7 +91,7 @@ namespace Jumpy_mc_jump_man_Platform_3
                 {
                     if (celldown && !cell)
                     {
-                        ddx = ddx + zombieAcceleration; //zombie wants to go left
+                        ddx = ddx - zombieAcceleration; //zombie wants to go left
                     }
                     else
                     {
